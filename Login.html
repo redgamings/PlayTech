@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameLogin Launching</title>
+    <title>Game Login Launching...</title>
 </head>
 
 <body>
@@ -14,6 +14,7 @@
             let param = location.search;
             if (!param) {
                 alert('Login failed, error: Request null');
+                return;
             }
             try {
                 param = param.substr(1).replace(/_/g, '+');
@@ -21,6 +22,7 @@
                 paramJson = window.JSON(param);
             } catch {
                 alert('Login failed, error: Request');
+                return;
             }
             let username = paramJson.UserName;
             let password = paramJson.Password;
