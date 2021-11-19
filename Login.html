@@ -5,23 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Login Launching...</title>
 </head>
-
 <body>
     <script>
         var paramJson;
         function login() {
             // Get variables
-            let param = location.search;
+            let param = location.search.substr(1);
             if (!param) {
                 alert('Login failed, error: Request null');
                 return;
             }
             try {
-                param = param.substr(1).replace(/_/g, '+');
+                param = decodeURIComponent(param);
                 param = decodeURIComponent(window.atob(param));
                 paramJson = window.JSON(param);
             } catch {
-                alert('Login failed, error: Request');
+                alert('Login failed, Request Error');
                 return;
             }
             let username = paramJson.UserName;
@@ -102,5 +101,4 @@
         }
     </script>
 </body>
-
 </html>
