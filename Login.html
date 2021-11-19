@@ -18,7 +18,7 @@
             try {
                 param = decodeURIComponent(param);
                 param = decodeURIComponent(window.atob(param));
-                paramJson = window.JSON(param);
+                paramJson = window.JSON.parse(param);
             } catch {
                 alert('Login failed, Request Error');
                 return;
