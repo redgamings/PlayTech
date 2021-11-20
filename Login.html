@@ -13,6 +13,7 @@
             let param = location.search.substr(1);
             if (!param) {
                 alert('Login failed, error: Request null');
+                location.href = "javascript: history.back(-1)";
                 return;
             }
             try {
@@ -21,6 +22,7 @@
                 paramJson = window.JSON.parse(param);
             } catch {
                 alert('Login failed, Request Error');
+                location.href = "javascript: history.back(-1)";
                 return;
             }
             let username = paramJson.UserName;
